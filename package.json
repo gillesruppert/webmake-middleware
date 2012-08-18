@@ -1,0 +1,20 @@
+{
+  "name": "webmake-middleware",
+  "version": "0.0.0",
+  "description": "connect and express middleware for webmake",
+  "main": "lib/webmake-middleware.js",
+  "scripts": {
+    "test": "./node_modules/.bin/tap ./test"
+  },
+  "keywords": [
+    "webmake",
+    "middleware",
+    "connect",
+    "express"
+  ],
+  "author": "Gilles Ruppert",
+  "license": "MIT",
+  "devDependencies": {
+    "tap": "~0.3.0"
+  }
+}
