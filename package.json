@@ -1,11 +1,7 @@
 {
   "name": "webmake-middleware",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "connect and express middleware for webmake",
-  "main": "lib/webmake-middleware.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha test/*-test.js"
-  },
   "keywords": [
     "webmake",
     "middleware",
@@ -13,8 +9,22 @@
     "express",
     "browser"
   ],
-  "author": "Gilles Ruppert",
+  "author": "Gilles Ruppert <gilles@madeofbytes.com>",
+  "main": "lib/webmake-middleware.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gillesruppert/webmake-middleware"
+  },
+  "bugs": {
+    "url": "https://github.com/gillesruppert/webmake-middleware/issues"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/*-test.js"
+  },
   "license": "MIT",
+  "dependencies": {
+    "webmake": "0.3.x"
+  },
   "devDependencies": {
     "connect": "~2.4.3",
     "express": "~3.0.0rc3",
@@ -22,7 +32,7 @@
     "expect.js": "~0.1.2",
     "async": "~0.1.22"
   },
-  "dependencies": {
-    "webmake": "~0.3.11"
+  "engines": {
+    "node": "0.8.x"
   }
 }
