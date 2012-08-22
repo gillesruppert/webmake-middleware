@@ -38,7 +38,7 @@ webmakeMiddleware({
 
 **N.B: the path to the file needs to be absolute so you will have to construct it with `path.normalize(__dirname + '/path/to/main.js')` or similar**
 
-## Tests
+## Tests [![Build Status](https://secure.travis-ci.org/gillesruppert/webmake-middleware.png?branch=master)](http://travis-ci.org/gillesruppert/webmake-middleware)
 
     # in the webmake-middleware directory
     npm install
