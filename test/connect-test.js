@@ -11,16 +11,18 @@ describe('connect middleware', function() {
 
   it('should return the compiled file when requesting a valid url ', function(done) {
     var path = normalize(__dirname + '/fixtures/main.js');
-    var server = connect().use(webmakeMw('/test.js', path)).listen(3000);
-
-    http.get('http://localhost:3000/test.js', helpers.successResponseCallback(done, server.close.bind(server)));
+    var server = connect().use(webmakeMw('/test.js', path)).listen(3000, function(err) {
+      if (err) throw err;
+      http.get('http://localhost:3000/test.js', helpers.successResponseCallback(done, server.close.bind(server)));
+    });
   });
 
   it('should return a 500 response when webmake has a problem with compiling the script', function(done) {
     var path = normalize(__dirname + '/fixtures/err.js');
-    var server = connect().use(webmakeMw('/error.js', path)).listen(3000);
-
-    http.get('http://localhost:3000/error.js', helpers.failureResponseCallback(done, server.close.bind(server)));
+    var server = connect().use(webmakeMw('/error.js', path)).listen(3000, function(err) {
+      if (err) throw err;
+      http.get('http://localhost:3000/error.js', helpers.failureResponseCallback(done, server.close.bind(server)));
+    });
   });
 
   it('should be configurable with an object', function(done){
@@ -35,8 +37,7 @@ describe('connect middleware', function() {
       function(cb) { http.get('http://localhost:3000/test2.js', helpers.successResponseCallback(cb)); }
     ], function(err) {
       if (err) throw err;
-      server.close();
-      done();
+      server.close(done);
     });
   });
 });

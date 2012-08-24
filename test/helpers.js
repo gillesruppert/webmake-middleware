@@ -14,8 +14,8 @@ exports.successResponseCallback = function successResponseCallback(cb, close) {
 
     res.on('close', cb);
     res.on('end', function() {
-      if (close) close();
-      cb();
+      if (close) close(cb);
+      else cb();
     });
   }
 };
@@ -32,8 +32,8 @@ exports.failureResponseCallback = function failureResponseCallback(cb, close) {
 
     res.on('close', cb);
     res.on('end', function() {
-      if (close) close();
-      cb();
+      if (close) close(cb);
+      else cb();
     });
   }
 };
