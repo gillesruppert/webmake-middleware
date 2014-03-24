@@ -1,49 +1,35 @@
 'use strict';
 
-var webmake = require('webmake');
+var validate = require('es5-ext/lib/Object/valid-value')
+  , parse    = require('url').parse
+  , webmake  = require('webmake');
 
-/**
- * configuration function
- * Takes either:
- * - 2 strings, 1 being the requested url and the other being
- *   the path to the entry file, i.e. main.js
- * or
- * - 1 object where the key is the url and the value is entry file. This is
- *   useful if you have different urls and entry points
- *
- * @param {string|object} url
- * @param {string} [file]
- * @return {function} middleware
- */
-module.exports = function(url, file) {
-  var l = arguments.length;
-  var config;
-  // configuration must be either 2 strings or 1 object
-  if (!(l === 2 && typeof url === 'string' && typeof file === 'string' ||
-        l === 1 && typeof url === 'object') )  throw new TypeError('wrong arguments passed');
+module.exports = function (config/*, options*/) {
+  var options = Object(arguments[1]);
+  config = Object(validate(config));
 
-  if (l === 2) {
-    config = {};
-    config[url] = file;
-  }
-  else if (l === 1) config = url;
-
+  if (options.cache == null) options.cache = true;
   return function webmakeMiddleware(req, res, next) {
-    if (! (req.url in config)) {
+    var path = parse(req.url).pathname;
+    if (config[path] == null) {
       next();
       return;
     }
 
-    webmake(config[req.url], { sourceMap: true }, function(err, src) {
+    webmake(config[path], options, function (err, src) {
       if (err) {
         // fail loudly on the cli and in the browser
-        console.error(err);
+        console.error("Webmake error: " + err.message);
         res.writeHead(500);
-        res.end('document.write(\'<div style="position:absolute;' +
-                'top:10px;width:80%;color:red;font-size:150%;background-color:white;' +
-                'border:5px solid black;padding:10px;font:sans-serif;">' +
-                err.message.replace(/'/g, '\\\'') +
-               '</div>\')');
+        res.end('document.write(\'<div style="font-size: 1.6em;'
+          + ' padding: 1em;text-align: left; font-weight: bold; color: red;'
+          + ' position: absolute; top: 1em; left: 10%; width: 80%;'
+          + ' background: white; background: rgba(255,255,255,0.9);'
+          + ' border: 1px solid #ccc;"><div>Could not generate '
+          + path + '</div><div style="font-size: 0.8em;'
+          + ' padding-top: 1em">'
+          + err.message.replace(/'/g, '\\\'').replace(/[\n\r]/g, '\\n')
+          + '</div></div>\');');
         return;
       }
 
