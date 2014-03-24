@@ -13,7 +13,7 @@ describe('express framework', function () {
   it('should return the compiled file when requesting a valid url ',
     function (done) {
       var path = normalize(__dirname + '/fixtures/main.js')
-        , server = express().use(webmakeMw('/test.js', path)).listen(51234,
+        , server = express().use(webmakeMw({ '/test.js': path })).listen(51234,
         function (err) {
           if (err) throw err;
           http.get('http://localhost:51234/test.js',
@@ -24,7 +24,7 @@ describe('express framework', function () {
   it('should return a 500 response when webmake has a problem with compiling' +
     ' the script', function (done) {
       var path = normalize(__dirname + '/fixtures/err.js')
-        , server = express().use(webmakeMw('/error.js', path)).listen(51234,
+        , server = express().use(webmakeMw({ '/error.js': path })).listen(51234,
         function (err) {
           if (err) throw err;
           http.get('http://localhost:51234/error.js',
