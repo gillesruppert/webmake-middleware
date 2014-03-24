@@ -7,7 +7,8 @@
     "middleware",
     "connect",
     "express",
-    "browser"
+    "browser",
+    "server"
   ],
   "author": "Gilles Ruppert <gilles@madeofbytes.com>",
   "repository": {
