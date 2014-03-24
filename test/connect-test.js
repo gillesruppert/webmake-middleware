@@ -4,7 +4,7 @@ var http = require('http');
 var normalize = require('path').normalize;
 var async = require('async');
 
-var webmakeMw = require('../lib/webmake-middleware');
+var webmakeMw = require('../');
 var helpers = require('./helpers');
 
 describe('connect middleware', function() {
