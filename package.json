@@ -10,7 +10,6 @@
     "browser"
   ],
   "author": "Gilles Ruppert <gilles@madeofbytes.com>",
-  "main": "lib/webmake-middleware.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/gillesruppert/webmake-middleware"
