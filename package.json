@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "webmake": "0.3.x"
+    "webmake": "~0.3.27"
   },
   "devDependencies": {
     "connect": "~2.4.3",
