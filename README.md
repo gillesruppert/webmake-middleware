@@ -19,24 +19,14 @@ var webmakeMiddleware = require('webmake-middleware');
 
 // the `/build.js` url is the request url. `/path/to/main.js` is the path to the
 // main entry point.
-var server = connect().use(webmakeMiddleware('/build.js', '/path/to/main.js'));
+var server = connect().use(webmakeMiddleware({
+  '/build.js': '/path/to/main.js'
+  '/build2.js': '/path/to/main2.js'
+}));
 // add other middleware as necessary
 
 server.listen(3000);
 ```
-
-If your app only every uses 1 script, the 1st argument is the url to the script and the 2nd argument the absolute path to the entry point of your app, i.e. `main.js`.
-
-If your app uses multiple scripts, i.e. for different pages, you can pass an `object` where the key is the `url` and the value is the `path`.
-
-```javascript
-webmakeMiddleware({
-  '/core.js': '/absolute/path/to/main.js',
-  '/page2.js': '/absolute/path/to/page2main.js'
-})
-```
-
-**N.B: the path to the file needs to be absolute so you will have to construct it with `path.normalize(__dirname + '/path/to/main.js')` or similar**
 
 ## Tests
 
