@@ -1,3 +1,5 @@
+'use strict';
+
 var expect = require('expect.js');
 
 exports.successResponseCallback = function successResponseCallback(cb, close) {
@@ -7,13 +9,13 @@ exports.successResponseCallback = function successResponseCallback(cb, close) {
     expect(res.headers['content-type']).to.be('text/javascript; charset=utf-8');
     expect(res.headers['cache-control']).to.be('no-cache');
 
-    res.on('data', function(chunk) {
+    res.on('data', function (chunk) {
       expect(chunk).to.be.a('string');
       expect(chunk).to.not.be.empty();
     });
 
     res.on('close', cb);
-    res.on('end', function() {
+    res.on('end', function () {
       if (close) close(cb);
       else cb();
     });
@@ -25,13 +27,13 @@ exports.failureResponseCallback = function failureResponseCallback(cb, close) {
     res.setEncoding('utf8');
     expect(res.statusCode).to.be(500);
 
-    res.on('data', function(chunk) {
+    res.on('data', function (chunk) {
       expect(chunk).to.be.a('string');
       expect(chunk).to.contain('Cannot require');
     });
 
     res.on('close', cb);
-    res.on('end', function() {
+    res.on('end', function () {
       if (close) close(cb);
       else cb();
     });
