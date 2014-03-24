@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var webmakeMw = require('../lib/webmake-middleware');
+var webmakeMw = require('../');
 
 describe('webmake middleware', function() {
   describe('configuration function', function() {
