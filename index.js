@@ -1,5 +1,6 @@
 'use strict';
 
+var count    = require('es5-ext/lib/Object/count');
 var validate = require('es5-ext/lib/Object/valid-value');
 var parse    = require('url').parse;
 var webmake  = require('webmake');
@@ -9,17 +10,21 @@ var stringify = JSON.stringify;
 
 module.exports = function (config/*, options*/) {
   var options = Object(arguments[1]);
+  var log = (options.log == null) ? true : options.log;
+  delete options.log;
   config = Object(validate(config));
 
   if (options.cache == null) options.cache = true;
   return function webmakeMiddleware(req, res, next) {
     var path = parse(req.url).pathname;
+    var promise;
     if (config[path] == null) {
       next();
       return;
     }
 
-    webmake(config[path], options, function (err, src) {
+    promise = webmake(config[path], options, function (err, src) {
+      var msg, modulesSize, packagesSize;
       if (err) {
         // fail loudly on the cli and in the browser
         console.error("Webmake error: " + err.message);
@@ -42,6 +47,15 @@ module.exports = function (config/*, options*/) {
       });
 
       res.end(src);
+      if (log) {
+        modulesSize = promise.parser.modulesFiles.length;
+        packagesSize = count(promise.parser.packages);
+        msg = "Webmake OK [" +  modulesSize + " module";
+        if (modulesSize > 1) msg += "s";
+        msg += " from " + packagesSize + " package";
+        if (packagesSize > 1) msg += "s";
+        console.log(msg + " in " + (promise.time / 1000).toFixed(2) + "s] -> " + req.url);
+      }
     });
   };
 };
