@@ -11,6 +11,9 @@
     "server"
   ],
   "author": "Gilles Ruppert <gilles@madeofbytes.com>",
+  "collaborators": [
+    "Mariusz Nowak <medikoo+webmake-middleware@medikoo.com> (http://www.medikoo.com/)"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/gillesruppert/webmake-middleware"
