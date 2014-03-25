@@ -3,6 +3,9 @@
 var validate = require('es5-ext/lib/Object/valid-value');
 var parse    = require('url').parse;
 var webmake  = require('webmake');
+var encode   = require('entities').encodeXML;
+
+var stringify = JSON.stringify;
 
 module.exports = function (config/*, options*/) {
   var options = Object(arguments[1]);
@@ -28,7 +31,7 @@ module.exports = function (config/*, options*/) {
           + ' border: 1px solid #ccc;"><div>Could not generate '
           + path + '</div><div style="font-size: 0.8em;'
           + ' padding-top: 1em">'
-          + err.message.replace(/'/g, '\\\'').replace(/[\n\r]/g, '\\n')
+          + stringify(encode(err.message)).slice(1, -1).replace(/'/g, '\\\'')
           + '</div></div>\');');
         return;
       }

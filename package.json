@@ -23,14 +23,15 @@
   },
   "license": "MIT",
   "dependencies": {
+    "entities": "1.x",
     "es5-ext": "~0.9.2",
     "webmake": "~0.3.27"
   },
   "devDependencies": {
+    "async": "~0.2.10",
     "connect": "~2.14.3",
-    "express": "~3.5",
-    "mocha": "~1.18.2",
     "expect.js": "~0.3.1",
-    "async": "~0.2.10"
+    "express": "~3.5",
+    "mocha": "~1.18.2"
   }
 }
