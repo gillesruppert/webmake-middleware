@@ -1,12 +1,12 @@
 'use strict';
 
-var express = require('express')
-  , http = require('http')
-  , normalize = require('path').normalize
-  , async = require('async')
+var express = require('express');
+var http = require('http');
+var normalize = require('path').normalize;
+var async = require('async');
 
-  , webmakeMw = require('../')
-  , helpers = require('./helpers');
+var webmakeMw = require('../');
+var helpers = require('./helpers');
 
 describe('express framework', function () {
 

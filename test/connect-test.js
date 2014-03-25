@@ -1,12 +1,12 @@
 'use strict';
 
-var connect = require('connect')
-  , http = require('http')
-  , normalize = require('path').normalize
-  , async = require('async')
+var connect = require('connect');
+var http = require('http');
+var normalize = require('path').normalize;
+var async = require('async');
 
-  , webmakeMw = require('../')
-  , helpers = require('./helpers');
+var webmakeMw = require('../');
+var helpers = require('./helpers');
 
 describe('connect middleware', function () {
 

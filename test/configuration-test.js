@@ -1,6 +1,7 @@
 'use strict';
 
-var expect = require('expect.js'), webmakeMw = require('../');
+var expect = require('expect.js');
+var webmakeMw = require('../');
 
 describe('webmake middleware', function () {
   describe('configuration function', function () {

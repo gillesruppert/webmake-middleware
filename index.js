@@ -1,8 +1,8 @@
 'use strict';
 
-var validate = require('es5-ext/lib/Object/valid-value')
-  , parse    = require('url').parse
-  , webmake  = require('webmake');
+var validate = require('es5-ext/lib/Object/valid-value');
+var parse    = require('url').parse;
+var webmake  = require('webmake');
 
 module.exports = function (config/*, options*/) {
   var options = Object(arguments[1]);
