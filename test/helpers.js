@@ -25,7 +25,7 @@ exports.successResponseCallback = function successResponseCallback(cb, close) {
 exports.failureResponseCallback = function failureResponseCallback(cb, close) {
   return function testFailureResp(res) {
     res.setEncoding('utf8');
-    expect(res.statusCode).to.be(500);
+    expect(res.statusCode).to.be(200);
 
     res.on('data', function (chunk) {
       expect(chunk).to.be.a('string');
