@@ -25,10 +25,15 @@ module.exports = function (config/*, options*/) {
 
     promise = webmake(config[path], options, function (err, src) {
       var msg, modulesSize, packagesSize;
+
+      res.writeHead(200, {
+        'Content-Type': 'text/javascript; charset=utf-8',
+        'Cache-Control': 'no-cache'
+      });
+
       if (err) {
         // fail loudly on the cli and in the browser
         console.error("Webmake error: " + err.message);
-        res.writeHead(200);
         res.end('document.write(\'<div style="font-size: 1.6em;'
           + ' padding: 1em;text-align: left; font-weight: bold; color: red;'
           + ' position: absolute; top: 1em; left: 10%; width: 80%;'
@@ -40,11 +45,6 @@ module.exports = function (config/*, options*/) {
           + '</div></div>\');');
         return;
       }
-
-      res.writeHead(200, {
-        'Content-Type': 'text/javascript; charset=utf-8',
-        'Cache-Control': 'no-cache'
-      });
 
       res.end(src);
       if (log) {
