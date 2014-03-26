@@ -1,0 +1,33 @@
+@root
+
+module
+es5
+
+indent 2
+maxlen 80
+
+ass
+nomen
+plusplus
+vars
+
+predef+ console
+
+./test
+predef+ __dirname, describe, it
+@root
+
+module
+es5
+
+indent 2
+maxlen 80
+
+ass
+nomen
+plusplus
+
+predef+ console
+
+./test
+predef+ __dirname, describe, it
