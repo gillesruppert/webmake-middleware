@@ -54,7 +54,8 @@ module.exports = function (config/*, options*/) {
         if (modulesSize > 1) msg += "s";
         msg += " from " + packagesSize + " package";
         if (packagesSize > 1) msg += "s";
-        console.log(msg + " in " + (promise.time / 1000).toFixed(2) + "s] -> " + req.url);
+        console.log(msg + " in " + (promise.time / 1000).toFixed(2) + "s] -> " +
+          req.url);
       }
     });
   };
