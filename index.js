@@ -5,6 +5,8 @@ var validate = require('es5-ext/lib/Object/valid-value');
 var parse    = require('url').parse;
 var webmake  = require('webmake');
 var encode   = require('entities').encodeXML;
+var errorTpl = require('fs').readFileSync(__dirname +
+  '/error-template.js', 'utf8');
 
 var stringify = JSON.stringify;
 
@@ -34,15 +36,8 @@ module.exports = function (config/*, options*/) {
       if (err) {
         // fail loudly on the cli and in the browser
         console.error("Webmake error: " + err.message);
-        res.end('document.write(\'<div style="font-size: 1.6em;'
-          + ' padding: 1em;text-align: left; font-weight: bold; color: red;'
-          + ' position: absolute; top: 1em; left: 10%; width: 80%;'
-          + ' background: white; background: rgba(255,255,255,0.9);'
-          + ' border: 1px solid #ccc;"><div>Could not generate '
-          + path + '</div><div style="font-size: 0.8em;'
-          + ' padding-top: 1em">'
-          + stringify(encode(err.message)).slice(1, -1).replace(/'/g, '\\\'')
-          + '</div></div>\');');
+        res.end(errorTpl.replace('$PATH', stringify(encode(path)).slice(1, -1))
+          .replace('$ERROR', stringify(encode(err.message)).slice(1, -1)));
         return;
       }
 
