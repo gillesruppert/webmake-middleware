@@ -28,7 +28,7 @@ module.exports = function (config/*, options*/) {
       if (err) {
         // fail loudly on the cli and in the browser
         console.error("Webmake error: " + err.message);
-        res.writeHead(500);
+        res.writeHead(200);
         res.end('document.write(\'<div style="font-size: 1.6em;'
           + ' padding: 1em;text-align: left; font-weight: bold; color: red;'
           + ' position: absolute; top: 1em; left: 10%; width: 80%;'
