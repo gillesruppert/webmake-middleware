@@ -19,7 +19,7 @@ exports.successResponseCallback = function successResponseCallback(cb, close) {
       if (close) close(cb);
       else cb();
     });
-  }
+  };
 };
 
 exports.failureResponseCallback = function failureResponseCallback(cb, close) {
@@ -37,5 +37,5 @@ exports.failureResponseCallback = function failureResponseCallback(cb, close) {
       if (close) close(cb);
       else cb();
     });
-  }
+  };
 };
