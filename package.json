@@ -22,8 +22,8 @@
     "url": "https://github.com/gillesruppert/webmake-middleware/issues"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/*-test.js",
-    "lint": "./node_modules/xlint/bin/xlint --linter=./node_modules/xlint-jslint-medikoo/index.js"
+    "test": "node ./node_modules/.bin/mocha test/*-test.js",
+    "lint": "node ./node_modules/xlint/bin/xlint --linter=./node_modules/xlint-jslint-medikoo/index.js"
   },
   "license": "MIT",
   "dependencies": {
