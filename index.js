@@ -1,12 +1,11 @@
 'use strict';
 
-var count    = require('es5-ext/lib/Object/count');
-var validate = require('es5-ext/lib/Object/valid-value');
+var count    = require('es5-ext/object/count');
+var validate = require('es5-ext/object/valid-value');
 var parse    = require('url').parse;
 var webmake  = require('webmake');
 var encode   = require('entities').encodeXML;
-var errorTpl = require('fs').readFileSync(__dirname +
-  '/error-template.js', 'utf8');
+var errorTpl = require('fs').readFileSync(__dirname + '/error-template.js', 'utf8');
 
 var stringify = JSON.stringify;
 

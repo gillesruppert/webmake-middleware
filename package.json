@@ -28,8 +28,8 @@
   "license": "MIT",
   "dependencies": {
     "entities": "1.x",
-    "es5-ext": "~0.9.2",
-    "webmake": "~0.3.28"
+    "es5-ext": "~0.10.4",
+    "webmake": "~0.3.30"
   },
   "devDependencies": {
     "async": "~0.2.10",
@@ -37,7 +37,7 @@
     "expect.js": "~0.3.1",
     "express": "~3.5",
     "mocha": "~1.18.2",
-    "xlint": "git://github.com/medikoo/xlint.git",
-    "xlint-jslint-medikoo": "git://github.com/medikoo/xlint-jslint-medikoo.git"
+    "xlint": "0.2.x",
+    "xlint-jslint-medikoo": "0.1.x"
  }
 }
