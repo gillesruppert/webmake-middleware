@@ -59,7 +59,7 @@
     "webmake": "^0.4"
   },
   "devDependencies": {
-    "async": "^0.2.10",
+    "async": "^2.6.1",
     "connect": "^2.14.3",
     "eslint": "^5.8",
     "eslint-config-medikoo": "^1.44",
