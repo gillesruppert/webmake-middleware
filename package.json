@@ -56,7 +56,7 @@
   "dependencies": {
     "entities": "^1.1.2",
     "es5-ext": "^0.10.46",
-    "webmake": "^0.3.30"
+    "webmake": "^0.4"
   },
   "devDependencies": {
     "async": "^0.2.10",
