@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "async": "^2.6.1",
-    "connect": "^2.14.3",
+    "connect": "^3.6.6",
     "eslint": "^5.8",
     "eslint-config-medikoo": "^1.44",
     "expect.js": "^0.3.1",
