@@ -27,17 +27,17 @@
   },
   "license": "MIT",
   "dependencies": {
-    "entities": "1.x",
-    "es5-ext": "~0.10.4",
-    "webmake": "~0.3.30"
+    "entities": "^1.1.2",
+    "es5-ext": "^0.10.46",
+    "webmake": "^0.3.30"
   },
   "devDependencies": {
-    "async": "~0.2.10",
-    "connect": "~2.14.3",
-    "expect.js": "~0.3.1",
-    "express": "~3.5",
-    "mocha": "~1.18.2",
-    "xlint": "0.2.x",
-    "xlint-jslint-medikoo": "0.1.x"
+    "async": "^0.2.10",
+    "connect": "^2.14.3",
+    "expect.js": "^0.3.1",
+    "express": "^3.5",
+    "mocha": "^1.18.2",
+    "xlint": "^0.2.2",
+    "xlint-jslint-medikoo": "^0.1.4"
   }
 }
