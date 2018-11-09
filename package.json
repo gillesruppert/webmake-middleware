@@ -39,5 +39,5 @@
     "mocha": "~1.18.2",
     "xlint": "0.2.x",
     "xlint-jslint-medikoo": "0.1.x"
- }
+  }
 }
