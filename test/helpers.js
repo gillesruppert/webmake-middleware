@@ -14,10 +14,9 @@ exports.successResponseCallback = function (cb, close) {
 			expect(chunk).to.not.be.empty();
 		});
 
-		res.on("close", cb);
 		res.on("end", () => {
-			if (close) close(cb);
-			else cb();
+			if (close) close();
+			cb();
 		});
 	};
 };
@@ -32,10 +31,9 @@ exports.failureResponseCallback = function (cb, close) {
 			expect(chunk).to.contain("Cannot require");
 		});
 
-		res.on("close", cb);
 		res.on("end", () => {
-			if (close) close(cb);
-			else cb();
+			if (close) close();
+			cb();
 		});
 	};
 };
