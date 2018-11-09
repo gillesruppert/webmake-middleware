@@ -1,2 +1,2 @@
-var test1 = require('./test1');
+const test1 = require("./test1");
 

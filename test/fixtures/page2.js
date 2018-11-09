@@ -1,3 +1,3 @@
-var test1 = require('./test1');
-var test2 = require('./test2');
+const test1 = require("./test1");
+const test2 = require("./test2");
 
