@@ -65,6 +65,6 @@
     "eslint-config-medikoo": "^1.44",
     "expect.js": "^0.3.1",
     "express": "^4.16.4",
-    "mocha": "^1.18.2"
+    "mocha": "^5.2"
   }
 }
