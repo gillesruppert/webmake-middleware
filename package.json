@@ -22,13 +22,36 @@
     "url": "https://github.com/gillesruppert/webmake-middleware/issues"
   },
   "scripts": {
-    "lint": "eslint --ignore-path=.gitignore .",
+    "lint": "eslint .",
     "test": "node ./node_modules/.bin/mocha test/*-test.js"
   },
   "eslintConfig": {
+    "root": true,
     "extends": "medikoo",
-    "root": true
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": "off"
+    },
+    "overrides": [
+      {
+        "files": "test/**",
+        "env": {
+          "mocha": true
+        }
+      },
+      {
+        "files": "error-template.js",
+        "globals": {
+          "document": true
+        }
+      }
+    ]
   },
+  "eslintIgnore": [
+    "test/fixtures/**"
+  ],
   "license": "MIT",
   "dependencies": {
     "entities": "^1.1.2",

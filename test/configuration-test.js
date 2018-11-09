@@ -16,7 +16,7 @@ describe("webmake middleware", () => {
 		});
 
 		it("should take 1 object as argument", () => {
-			function err1() { webmakeMw(); }
+			const err1 = function () { webmakeMw(); };
 			expect(err1).to.throwError();
 			expect(webmakeMw({})).to.be.a("function");
 		});

@@ -2,40 +2,40 @@
 
 const expect = require("expect.js");
 
-exports.successResponseCallback = function successResponseCallback(cb, close) {
-  return function testSuccessResp(res) {
-    res.setEncoding("utf8");
-    expect(res.statusCode).to.be(200);
-    expect(res.headers["content-type"]).to.be("text/javascript; charset=utf-8");
-    expect(res.headers["cache-control"]).to.be("no-cache");
+exports.successResponseCallback = function (cb, close) {
+	return function (res) {
+		res.setEncoding("utf8");
+		expect(res.statusCode).to.be(200);
+		expect(res.headers["content-type"]).to.be("text/javascript; charset=utf-8");
+		expect(res.headers["cache-control"]).to.be("no-cache");
 
-    res.on("data", chunk => {
-      expect(chunk).to.be.a("string");
-      expect(chunk).to.not.be.empty();
-    });
+		res.on("data", chunk => {
+			expect(chunk).to.be.a("string");
+			expect(chunk).to.not.be.empty();
+		});
 
-    res.on("close", cb);
-    res.on("end", () => {
-      if (close) close(cb);
-      else cb();
-    });
-  };
+		res.on("close", cb);
+		res.on("end", () => {
+			if (close) close(cb);
+			else cb();
+		});
+	};
 };
 
-exports.failureResponseCallback = function failureResponseCallback(cb, close) {
-  return function testFailureResp(res) {
-    res.setEncoding("utf8");
-    expect(res.statusCode).to.be(200);
+exports.failureResponseCallback = function (cb, close) {
+	return function (res) {
+		res.setEncoding("utf8");
+		expect(res.statusCode).to.be(200);
 
-    res.on("data", chunk => {
-      expect(chunk).to.be.a("string");
-      expect(chunk).to.contain("Cannot require");
-    });
+		res.on("data", chunk => {
+			expect(chunk).to.be.a("string");
+			expect(chunk).to.contain("Cannot require");
+		});
 
-    res.on("close", cb);
-    res.on("end", () => {
-      if (close) close(cb);
-      else cb();
-    });
-  };
+		res.on("close", cb);
+		res.on("end", () => {
+			if (close) close(cb);
+			else cb();
+		});
+	};
 };
