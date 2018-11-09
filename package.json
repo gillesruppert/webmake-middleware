@@ -1,6 +1,6 @@
 {
   "name": "webmake-middleware",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "connect and express middleware for webmake",
   "keywords": [
     "webmake",
